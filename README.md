@@ -25,7 +25,7 @@ Example systemd unit file:
 ```
 [Unit]
 Description=virsh start / stop %i
-Requires=libvirtd.service
+BindsTo=libvirtd.service
 After=libvirtd.service
 
 [Service]
