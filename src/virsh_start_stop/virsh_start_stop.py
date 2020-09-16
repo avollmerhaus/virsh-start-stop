@@ -43,6 +43,7 @@ def stop_machine(machine, timeout):
             # we have a race condition between checking for VIR_DOMAIN_SHUTOFF
             # and issuing the shutdown request.
             # unfortunately, "libvirtError" is all we get in that case.
+            time.sleep(1)
             if libvirt_machine.state()[0] == libvirt.VIR_DOMAIN_SHUTOFF:
                 # if the domain is in SHUTOFF now, we assume all went well
                 pass
